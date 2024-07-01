@@ -51,7 +51,6 @@ body{
     width: 100%;
     min-height: calc(848px - 85px);
     display: flex;
-    
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
@@ -85,7 +84,6 @@ body{
     gap: 35px
 }
 .hero-buttons{
-    
     text-align: center;
     height: 56px;
     width: 173px;
@@ -934,8 +932,14 @@ body{
     .first-section{
         width: 100%;
     }
+    .top-nav{
+        justify-content: space-evenly;
+        padding: 0 2.5%;
+    }
     .quick-links{
         font-size: 3.75vw;
+        position: relative;
+        text-wrap: nowrap;
     }
     .hero-buttons{
         text-align: center;

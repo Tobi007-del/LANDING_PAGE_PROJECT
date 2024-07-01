@@ -373,7 +373,6 @@ body{
     height: 700px;
     display: flex;
     flex-flow: column nowrap;
-    
     justify-content: space-between;
     background-color: #004282;
     color: #FFFFFF;

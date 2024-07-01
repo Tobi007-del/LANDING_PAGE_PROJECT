@@ -13,6 +13,8 @@ const n = new Intl.NumberFormat('en-US',{
     maximumFractionDigits: 0,
 })
 
+
+
 var i = 0,
 j=0,
 k=0,
@@ -24,15 +26,23 @@ const firstValueCount = () => {
     if(i < 15000){
         i = i + 75;
         firstValue.innerHTML = n.format(i);
+        if(firstValue.innerHTML === "15,000"){
+            firstValue.innerHTML = "15,000 +";
+        }
     } else {
         clearInterval(o)
+        o = null;
     }
 }, secondValueCount = () => {
     if(j < 23000){
         j = j + 100;
         secondValue.innerHTML = n.format(j);
+        if(secondValue.innerHTML === "23,000"){
+            secondValue.innerHTML = "23,000 +";
+        }
     } else {
         clearInterval(p)
+        p = null;
     }
 }, thirdValueCount = () => {
     if(k < 2){
@@ -48,6 +58,7 @@ const firstValueCount = () => {
         }
     } else {
         clearInterval(q)
+        q = null;
     }
 }, fourthValueCount = () => {
     if(l < 4){
@@ -55,6 +66,7 @@ const firstValueCount = () => {
         fourthValue.innerHTML = `0${n.format(l)}`;
     } else {
         clearInterval(r)
+        r = null;
     }
 }, pFirstValueCount = () => {
     if(a < 15459){
@@ -65,6 +77,7 @@ const firstValueCount = () => {
         }
     } else {
         clearInterval(c)
+        c = null;
     }
 }, pSecondValueCount = () => {
     if(b < 21000){
@@ -72,10 +85,11 @@ const firstValueCount = () => {
         pSecondValue.innerHTML = n.format(b);
     } else {
        clearInterval(d)
+       d = null;
     }
 }
 
-function debounce(func, wait = 1000, immediate = true) {
+function debounce(func, wait = 100, immediate = true) {
     let timeout;
     return function() {
       let context = this, args = arguments;
@@ -90,50 +104,70 @@ function debounce(func, wait = 1000, immediate = true) {
     };
   }
 
-window.onload = () =>{
-    counter()
-}
+
 
 window.addEventListener('scroll',debounce(function(e){
-    if((accreditationSection.offsetTop - document.body.scrollTop) < window.scrollY){
-       counter()
+    const threshold = 100;
+    const footerThreshold = footerSection.offsetHeight - 100;
+    const scrolledTo = window.scrollY + window.innerHeight;
+    const isReachBottom = document.body.scrollHeight - footerThreshold <= scrolledTo;
+    if((accreditationSection.offsetTop - threshold) > window.scrollY){
+        console.log(`First event listener speaking: ${(accreditationSection.offsetTop - threshold) > window.scrollY}`)
+        counter()
     }
-    else {
-        console.log(i)
+    if(((footerSection.offsetTop) < window.scrollY) || (isReachBottom)){
+        console.log(`First event listener speaking for the idiot footer: ${((footerSection.offsetTop) < window.scrollY) || (isReachBottom)}`)
+        console.log("calling the footer counter function at the moment")
+        footerCounter()
+    } 
+    if((accreditationSection.offsetTop + 162) <= window.scrollY){
+        console.log(`Second event listener speaking: ${(accreditationSection.offsetTop + 162) < window.scrollY}`)
         i=0;
         j=0;
         k=0;
         l=0;
     }
-    if((footerSection.offsetTop - document.body.scrollTop) < window.scrollY){
-        footerCounter()
-    } 
-    else {
-        a = 0;
-        b = 0;
+    const isReachAboveFooter = document.body.scrollHeight - footerSection.offsetHeight >= scrolledTo;
+    if((isReachAboveFooter)){
+        console.log(`Third event listener speaking: ${isReachAboveFooter}`)
+        a=0;
+        b=0;
     }
 }))
 
-const counter = () => {
-    o = setInterval(()=>{
-        firstValueCount()
-    },10)
-    p = setInterval(()=>{
-        secondValueCount()
-    },10)
-    q = setInterval(()=>{
-        thirdValueCount()
-    },500)
-    r = setInterval(()=>{
-        fourthValueCount()
-    },250)
+
+
+
+async function counter(){
+    let  counterPromise = new Promise(function(resolve,reject){
+        o = setInterval(()=>{
+            firstValueCount()
+        },10);
+        p = setInterval(()=>{
+            secondValueCount()
+        },10);
+        q = setInterval(()=>{
+            thirdValueCount()
+        },500);
+        r = setInterval(()=>{
+            fourthValueCount()
+        },250);
+        resolve("all intervals have been set boss")
+    }).then(function(value){
+        console.log(`Promise finished with value: ${value}`)
+    })
 }
 
 const footerCounter = () => {
-    c = setInterval(()=>{
-        pFirstValueCount()
-    })
-    d = setInterval(()=>{
-        pSecondValueCount()
+    const footerCounterPromise = new Promise(function(resolve){
+        c = setInterval(()=>{
+            pFirstValueCount()
+        })
+        d = setInterval(()=>{
+            pSecondValueCount()
+        })
+        resolve("all footer counter intervals have been set boss")
+    }).then(function(value){
+        console.log(`Footer promise finished with value: ${value}`)
     })
 }

@@ -17,11 +17,11 @@ const n = new Intl.NumberFormat('en-US',{
 
 var i = 0,
 j=0,
-k=0,
+k=147,
 l=0,
 a=0,
 b=0,
-o,p,q,r,c,d;
+o,p,q,r,c,d,duration;
 const firstValueCount = () => {
     if(i < 15000){
         i = i + 75;
@@ -45,8 +45,8 @@ const firstValueCount = () => {
         p = null;
     }
 }, thirdValueCount = () => {
-    if(k < 2){
-        k = k + 1;
+    if(k > 2){
+        k = k - 1;
         if(k === 1){
             thirdValue.innerHTML = `${n.format(k)}st`;
         } else if(k===2){
@@ -124,7 +124,7 @@ window.addEventListener('scroll',debounce(function(e){
         console.log(`Second event listener speaking: ${(accreditationSection.offsetTop + 162) < window.scrollY}`)
         i=0;
         j=0;
-        k=0;
+        k=147;
         l=0;
     }
     const isReachAboveFooter = document.body.scrollHeight - footerSection.offsetHeight >= scrolledTo;
@@ -139,7 +139,7 @@ window.addEventListener('scroll',debounce(function(e){
 
 
 async function counter(){
-    let  counterPromise = new Promise(function(resolve,reject){
+    await new Promise(function(resolve){
         o = setInterval(()=>{
             firstValueCount()
         },10);
@@ -148,26 +148,26 @@ async function counter(){
         },10);
         q = setInterval(()=>{
             thirdValueCount()
-        },500);
+        },15);
         r = setInterval(()=>{
             fourthValueCount()
-        },250);
-        resolve("all intervals have been set boss")
+        },500);
+        resolve("all intervals have been set")
     }).then(function(value){
-        console.log(`Promise finished with value: ${value}`)
+        console.log(value)
     })
 }
 
-const footerCounter = () => {
-    const footerCounterPromise = new Promise(function(resolve){
+async function footerCounter(){
+    await new Promise(function(resolve){
         c = setInterval(()=>{
             pFirstValueCount()
-        })
+        },10)
         d = setInterval(()=>{
             pSecondValueCount()
-        })
-        resolve("all footer counter intervals have been set boss")
+        },12)
+        resolve("all footer counter intervals have been set")
     }).then(function(value){
-        console.log(`Footer promise finished with value: ${value}`)
+        console.log(value)
     })
 }

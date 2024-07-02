@@ -118,17 +118,6 @@ body{
     height: 683px;
     background-image: url(images_folder/Hero\ image.png);
 }
-#order-text{
-    position: absolute;
-    width: 208px;
-    height: 40px;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
-    color: #535358;
-    top: 240px;
-    left: 82px;
-}
 .accreditation-sections{
     width: 100%;
     height: 162px;
@@ -405,7 +394,6 @@ body{
 }
 #white-border{
     height: 33px;
-    
     width: 1px;
     background-color: white;
     position: relative;

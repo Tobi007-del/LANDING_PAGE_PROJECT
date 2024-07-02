@@ -21,7 +21,7 @@ k=147,
 l=0,
 a=0,
 b=0,
-o,p,q,r,c,d,duration;
+o,p,q,r,c,d;
 const firstValueCount = () => {
     if(i < 15000){
         i = i + 75;
@@ -112,16 +112,12 @@ window.addEventListener('scroll',debounce(function(e){
     const scrolledTo = window.scrollY + window.innerHeight;
     const isReachBottom = document.body.scrollHeight - footerThreshold <= scrolledTo;
     if((accreditationSection.offsetTop - threshold) > window.scrollY){
-        console.log(`First event listener speaking: ${(accreditationSection.offsetTop - threshold) > window.scrollY}`)
         counter()
     }
     if(((footerSection.offsetTop) < window.scrollY) || (isReachBottom)){
-        console.log(`First event listener speaking for the idiot footer: ${((footerSection.offsetTop) < window.scrollY) || (isReachBottom)}`)
-        console.log("calling the footer counter function at the moment")
         footerCounter()
     } 
-    if((accreditationSection.offsetTop + 162) <= window.scrollY){
-        console.log(`Second event listener speaking: ${(accreditationSection.offsetTop + 162) < window.scrollY}`)
+    if((accreditationSection.offsetTop + accreditationSection.offsetHeight) <= window.scrollY){
         i=0;
         j=0;
         k=147;
@@ -129,7 +125,6 @@ window.addEventListener('scroll',debounce(function(e){
     }
     const isReachAboveFooter = document.body.scrollHeight - footerSection.offsetHeight >= scrolledTo;
     if((isReachAboveFooter)){
-        console.log(`Third event listener speaking: ${isReachAboveFooter}`)
         a=0;
         b=0;
     }
@@ -138,8 +133,7 @@ window.addEventListener('scroll',debounce(function(e){
 
 
 
-async function counter(){
-    await new Promise(function(resolve){
+function counter(){
         o = setInterval(()=>{
             firstValueCount()
         },10);
@@ -152,22 +146,13 @@ async function counter(){
         r = setInterval(()=>{
             fourthValueCount()
         },500);
-        resolve("all intervals have been set")
-    }).then(function(value){
-        console.log(value)
-    })
 }
 
-async function footerCounter(){
-    await new Promise(function(resolve){
+function footerCounter(){
         c = setInterval(()=>{
             pFirstValueCount()
         },10)
         d = setInterval(()=>{
             pSecondValueCount()
         },12)
-        resolve("all footer counter intervals have been set")
-    }).then(function(value){
-        console.log(value)
-    })
 }

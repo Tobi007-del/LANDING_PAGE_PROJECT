@@ -65,7 +65,7 @@ body{
 }
 .second-section{
     position: relative;
-    right: 55px;
+    right: 50px;
 }
 #hero-title{
     font-size: 55px;
@@ -114,9 +114,10 @@ body{
     color: #B28034;
 }
 #hero-image{
-    width: 736px;
+    width: 700px;
     height: 683px;
-    background-image: url(images_folder/Hero\ image.png);
+    background: url(images_folder/Hero\ image.png) no-repeat;
+    background-size: contain;
 }
 .accreditation-sections{
     width: 100%;
@@ -149,7 +150,7 @@ body{
     font-size: 16px;
     font-weight: 400;
     margin: 0;
-    line-height: 19.38px;
+    line-height: 19.38px; 
 }
 .accreditation-section:nth-child(1),
 .accreditation-section:nth-child(2),
@@ -203,7 +204,6 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
-
 .grid-headers{
    font-size: 36px;
    font-weight: 600;
@@ -225,8 +225,7 @@ body{
 #item-1{
     grid-area: item1;
     width: 492px;
-    height: 750px;
-    
+    height: 750px;  
     background-color: rgba(181,21,206,0.24);
     padding: 88px 33.5px 0 33.5px;
     gap: 17.5px;
@@ -587,7 +586,7 @@ body{
         position: relative;
     }
 }
-@media(max-width: 1200px) and (min-width: 1100px){
+@media(max-width: 1200px) and (min-width: 1150px){
     .first-section{
         gap: 60px;
     }
@@ -602,20 +601,16 @@ body{
         font-size: 19.5px;
     }
     #item-3{
-        padding: 20px 25px 0 25px;
+        padding: 20px 11px 0 11px;
     }
     #feature-text-3{
-        font-size: 19.5px;
-        line-height: 27.5px;
+        font-size: 19px;
     }
     #item-5{
         gap: 25px;
     }
     #feature-header-5{
         line-height: 50px;
-    }
-    .marketing-section{
-        background: linear-gradient(rgba(255, 255, 255, 0.85),rgba(255, 255, 255, 0.85)),url(images_folder/Frame\ 3466310.png);
     }
 }
 @media(max-width: 1200px){
@@ -696,9 +691,9 @@ body{
         margin: 70px 0;
     }
 }
-@media(max-width: 1100px) and (min-width: 850px){
+@media(max-width: 1150px) and (min-width: 850px){
     .features-grid{
-        gap: 30px;
+        gap: 2vw;
         grid-template-columns: auto auto;
         grid-template-rows: auto auto auto auto auto;
         grid-template-areas: none;
@@ -732,6 +727,10 @@ body{
     }
 }
 @media(max-width: 850px){
+    #hero-image{
+        width: 85vw;
+        height: 85vw;
+    }
     #features-subheader{
         max-width: 85%;
     }
@@ -884,11 +883,9 @@ body{
     }
 }
 @media(max-width: 600px){
-    
     #features-subheader{
         font-size: 16.5px;
     }
-    
     .grid-texts{
         font-size: 16px;
     }
@@ -913,6 +910,10 @@ body{
     }
     #feature-header-6{
         margin-left: 10px;
+    }
+    #hero-image{
+        width: 95vw;
+        height: 95vw;
     }
 }
 @media(max-width: 500px){

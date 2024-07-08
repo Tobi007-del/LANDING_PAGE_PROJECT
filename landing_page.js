@@ -101,6 +101,10 @@ let observer = new IntersectionObserver((entries,observer)=>{
             if((entry.target.dataset.identity === "accreditation") && (entry.intersectionRatio > 0.2)){
                 count ++;
                 if(count === 1){
+                    firstValue.textContent = "0";
+                    secondValue.textContent = "0";
+                    thirdValue.textContent = "147th";
+                    fourthValue.textContent = "01";
                     accreditationCounter()
                 }
                 observer.unobserve(entry.target)
@@ -108,6 +112,8 @@ let observer = new IntersectionObserver((entries,observer)=>{
             if((entry.target.dataset.identity === "population-counter") && (entry.intersectionRatio > 0.2)){
                 fCount ++;
                 if(fCount === 1){
+                    pFirstValue.textContent = "0";
+                    pSecondValue.textContent = "0";
                     populationCounter()
                 }
                 observer.unobserve(entry.target)

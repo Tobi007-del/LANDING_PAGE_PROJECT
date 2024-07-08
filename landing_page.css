@@ -73,7 +73,7 @@ body{
     font-weight: 700;
     line-height: 90px;
     margin: 0;
-    width: 542px;
+    max-width: 542px;
 }
 #hero-text{
     font-size: 20px;
@@ -808,6 +808,9 @@ body{
     }
 }
 @media(max-width:750px){
+    #hero-title{
+        width: fit-content;
+    }
     .footer-section{
         width: 100%;
         height: auto;

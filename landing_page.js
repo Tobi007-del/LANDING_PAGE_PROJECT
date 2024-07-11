@@ -176,25 +176,34 @@ function buildThreshold(){
 // const accreditationSection = document.getElementById('accreditation-section-container'),
 // populationSection = document.getElementById('population-section-wrapper')
 // window.addEventListener('scroll',debounce(function(e){
+//     let count = 0,fCount = 0;
 //     const threshold = 100;
 //     const scrolledTo = window.scrollY + window.innerHeight;
 //     const isReachBottom = document.body.scrollHeight - threshold <= scrolledTo;
 //     if((accreditationSection.offsetTop - threshold) > window.scrollY){
-//         accreditationCounter()
+//         count ++;
+//         if(count === 1){
+//             accreditationCounter()
+//         }
 //     }
 //     if(((populationSection.offsetTop + populationSection.offsetHeight) < scrolledTo) || (isReachBottom)){
-//         populationCounter()
+//         fCount ++;
+//         if (fCount === 1){
+//             populationCounter()
+//         }
 //     } 
 //     if(((accreditationSection.offsetTop + accreditationSection.offsetHeight) <= window.scrollY) || ((accreditationSection.offsetTop - accreditationSection.offsetHeight) > scrolledTo)){
 //         i=0;
 //         j=0;
 //         k=147;
 //         l=0;
+//         count = 0;
 //     }
 //     const isReachAbovePopulation = populationSection.offsetTop >= scrolledTo;
 //     if((isReachAbovePopulation)){
 //         a=0;
 //         b=0;
+//         fCount = 0;
 //     }
 // }))
 

@@ -1,3 +1,4 @@
+//INITIALIZATION OF VARIABLES
 const firstValue = document.getElementById('first-value'),
 secondValue = document.getElementById('second-value'),
 thirdValue = document.getElementById('third-value'),
@@ -154,62 +155,6 @@ function buildThreshold(){
 }
 
 
-//A DELAY FUNCTION FOR SCROLL TRIGGERED EVENTS 
-
-// function debounce(func, wait = 100, immediate = true) {
-//     let timeout;
-//     return function() {
-//       let context = this, args = arguments;
-//       let later = function(e) {
-//         timeout = null;
-//         if (!immediate) func.apply(context, args);
-//       };
-//       let callNow = immediate && !timeout;
-//       clearTimeout(timeout);
-//       timeout = setTimeout(later, wait);
-//       if (callNow) func.apply(context, args);
-//     };
-// }
-
-// INITIALLY USED A CUSTOM SCROLL TRIGGERED FUNCTION FOR THE AUTOMATIC COUNTER 
-
-// const accreditationSection = document.getElementById('accreditation-section-container'),
-// populationSection = document.getElementById('population-section-wrapper')
-// window.addEventListener('scroll',debounce(function(e){
-//     let count = 0,fCount = 0;
-//     const threshold = 100;
-//     const scrolledTo = window.scrollY + window.innerHeight;
-//     const isReachBottom = document.body.scrollHeight - threshold <= scrolledTo;
-//     if((accreditationSection.offsetTop - threshold) > window.scrollY){
-//         count ++;
-//         if(count === 1){
-//             accreditationCounter()
-//         }
-//     }
-//     if(((populationSection.offsetTop + populationSection.offsetHeight) < scrolledTo) || (isReachBottom)){
-//         fCount ++;
-//         if (fCount === 1){
-//             populationCounter()
-//         }
-//     } 
-//     if(((accreditationSection.offsetTop + accreditationSection.offsetHeight) <= window.scrollY) || ((accreditationSection.offsetTop - accreditationSection.offsetHeight) > scrolledTo)){
-//         i=0;
-//         j=0;
-//         k=147;
-//         l=0;
-//         count = 0;
-//     }
-//     const isReachAbovePopulation = populationSection.offsetTop >= scrolledTo;
-//     if((isReachAbovePopulation)){
-//         a=0;
-//         b=0;
-//         fCount = 0;
-//     }
-// }))
-
-
-
-
 //COUNTER FUNCTIONS
 var t = 10,
 tw = 12,
@@ -237,6 +182,64 @@ function populationCounter(){
             pSecondValueCount()
         },tw)
 }
+
+
+// INITIALLY USED A CUSTOM SCROLL TRIGGERED FUNCTION FOR THE AUTOMATIC COUNTER BUT COMMENTED IT AS SEEN BELOW
+
+//A DELAY FUNCTION FOR SCROLL TRIGGERED EVENTS 
+
+// function debounce(func, wait = 100, immediate = true) {
+//     let timeout;
+//     return function() {
+//       let context = this, args = arguments;
+//       let later = function(e) {
+//         timeout = null;
+//         if (!immediate) func.apply(context, args);
+//       };
+//       let callNow = immediate && !timeout;
+//       clearTimeout(timeout);
+//       timeout = setTimeout(later, wait);
+//       if (callNow) func.apply(context, args);
+//     };
+// }
+
+// const accreditationSection = document.getElementById('accreditation-section-container'),
+// populationSection = document.getElementById('population-section-wrapper')
+// window.addEventListener('scroll',debounce(function(e){
+//     let countt = 0,fCountt = 0;
+//     const threshold = 100;
+//     const scrolledTo = window.scrollY + window.innerHeight;
+//     const isReachBottom = document.body.scrollHeight - threshold <= scrolledTo;
+//     if((accreditationSection.offsetTop - threshold) > window.scrollY){
+//         countt ++;
+//         if(countt === 1){
+//             accreditationCounter()
+//         }
+//     }
+//     if(((populationSection.offsetTop + populationSection.offsetHeight) < scrolledTo) || (isReachBottom)){
+//         fCountt ++;
+//         if (fCountt === 1){
+//             populationCounter()
+//         }
+//     } 
+//     if(((accreditationSection.offsetTop + accreditationSection.offsetHeight) <= window.scrollY) || ((accreditationSection.offsetTop - accreditationSection.offsetHeight) > scrolledTo)){
+//         i=0;
+//         j=0;
+//         k=147;
+//         l=0;
+//         countt = 0;
+//     }
+//     const isReachAbovePopulation = populationSection.offsetTop >= scrolledTo;
+//     if((isReachAbovePopulation)){
+//         a=0;
+//         b=0;
+//         fCountt = 0;
+//     }
+// }))
+
+
+
+
 
 
 

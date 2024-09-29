@@ -21,7 +21,7 @@ body{
     min-height: 848px;
     display: flex;
     flex-flow: row wrap;
-    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url(images_folder/2151468881\ 1.png);
+    background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('images_folder/2151468881\ 1.png');
     background-size: cover;
 }
 .top-nav{
@@ -74,6 +74,9 @@ body{
     line-height: 90px;
     margin: 0;
     max-width: 542px;
+}
+#hero-title span {
+    color: #004282;
 }
 #hero-text{
     font-size: 20px;
@@ -469,7 +472,7 @@ body{
     flex-flow: row wrap;
     height: 111px;
 }
-.newsletter-text-wrapper{
+.newsletter-white-spaceper{
     width: 359px;
     height: 48px;
 }
@@ -963,7 +966,7 @@ body{
     .quick-links{
         font-size: 3.75vw;
         position: relative;
-        text-wrap: nowrap;
+        white-space: nowrap;
     }
     .hero-buttons{
         text-align: center;
@@ -981,7 +984,7 @@ body{
         top: -5px;
     }
     #feature-header-5{
-        text-wrap: nowrap;
+        white-space: nowrap;
     }
     #item-2,#item-5{
         overflow: hidden;

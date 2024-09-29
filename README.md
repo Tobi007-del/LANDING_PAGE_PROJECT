@@ -58,7 +58,7 @@ It is a single webpage but it also has some external links to the babcock univer
 - Vanilla Javascript
 
 #### Links
-The view the live preview of this webpage, you can visit *[here][1]* or you can also visit *[here][2]* to view the github repository where the project is located.
+To view the live preview of this webpage, you can visit *[here][1]* or you can also visit *[here][2]* to view the github repository where the project is located.
 
 [1]: <https://tobi007-del.github.io/LANDING_PAGE_PROJECT> "LIVE PREVIEW OF THE PROCUREMENT PAGE"
 
